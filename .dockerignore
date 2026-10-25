@@ -1,0 +1,8 @@
+node_modules
+shared-deps/node_modules
+jobs
+.git
+.gitignore
+.DS_Store
+*.log
+run.sh

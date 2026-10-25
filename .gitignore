@@ -1,0 +1,7 @@
+node_modules
+shared-deps
+jobs
+temp-sessions
+.DS_Store
+*.log
+deploy-hf.sh
