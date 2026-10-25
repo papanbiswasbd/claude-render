@@ -238,7 +238,12 @@ async function processJob(jobId, zipPath, sessionDir) {
         fs.writeFileSync(configFile, content);
       }
     } else {
-      fs.writeFileSync(configPathTs, `import { Config } from "@remotion/cli/config";\nConfig.setVideoImageFormat("jpeg");\nConfig.setOverwriteOutput(true);\nConfig.setBrowserExecutable('${CHROME_PATH}');\n`);
+      fs.writeFileSync(configPathTs, `import { Config } from "@remotion/cli/config";
+Config.setVideoImageFormat("jpeg");
+Config.setOverwriteOutput(true);
+Config.setBrowserExecutable('${CHROME_PATH}');
+Config.setChromiumOptions({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu'] });
+`);
     }
 
     // Detect Entry & Composition
